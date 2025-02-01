@@ -1,0 +1,43 @@
+* {
+  margin: 0  !important;
+  padding: 0  !important;
+  text-decoration: none  !important;
+}
+
+nav {
+  background-color: rgb(206, 180, 180);
+  padding: 25px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px !important;
+}
+
+.WMessage {
+  font-size: larger;
+   padding: 100px !important;
+   margin-bottom:50px !important;
+}
+
+.userinputs {
+  display: flex;
+  justify-content: center;
+}
+
+
+li {
+  list-style: none;
+   display: inline;
+    margin: 80px;
+}
+
+.recipes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+br {
+  padding: 10px;
+  color: #000;
+}

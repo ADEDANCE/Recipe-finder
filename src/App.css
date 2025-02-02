@@ -10,18 +10,18 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 50px !important;
 }
 
 .WMessage {
   font-size: larger;
    padding: 100px !important;
-   margin-bottom:50px !important;
+   margin-bottom:100px !important;
 }
 
 .userinputs {
   display: flex;
   justify-content: center;
+  margin-bottom: 100px !important;
 }
 
 
@@ -31,10 +31,16 @@ li {
     margin: 80px;
 }
 
-.recipes {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.Recipesheading {
+  margin: 40px 0 100px 0 !important;
+  text-align: center;
+}
+
+.recipes   {
+  background-color: bisque !important;
+border-bottom: 1px solid #000;
+align-items: center;
+padding: 30px !important;
 }
 
 br {

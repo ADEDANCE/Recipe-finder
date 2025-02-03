@@ -47,3 +47,15 @@ br {
   padding: 10px;
   color: #000;
 }
+
+.recipesDetails {
+  background-color:   bisque !important;
+  /* text-align: center; */
+  min-height: 100vh;
+}
+
+
+strong {
+  display: inline-block;
+  margin: 20px 0 30px 0 !important;
+}

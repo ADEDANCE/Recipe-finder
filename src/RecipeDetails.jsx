@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
 import {useNavigate} from 'react-router-dom';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 
 const API_KEY = "aaa825c706f24d959e58185fc7ae9601";
@@ -49,7 +50,7 @@ const RecipeDetails = () => {
     <div className="recipesDetails" >
 
       <Row>
-        <Col>
+        <Col md={7}  >
         {details ? (
         <div style={{ marginTop: "30px" }}>
           <h2>{details.title || "No Title Available"}</h2>
@@ -69,30 +70,35 @@ const RecipeDetails = () => {
     </ol>
   ))}
 
-          <p>
-            <strong>Instructions:</strong> 
-            <div dangerouslySetInnerHTML={{ __html: details.instructions }} style={{
-      textAlign:'start'
-    }} >
-               </div>
-            {/* {details.instructions || "No instructions available."} */}
-          </p>
+       <p><strong>Instructions:</strong></p>
+<div dangerouslySetInnerHTML={{ __html: details.instructions }}></div>
+
         </div>
       ) : (
         <p>Loading recipe details...</p>
       )}
         </Col>
-        <Col>
-        {details.image ? (
-            <img src={details.image} alt={details.title} width="250" />
-          ) : (
-            <p>No image available</p>
-          )}
-        </Col>
+        {details ? (
+  <Col>
+    {details.image ? (
+      <img className="detailsImg"
+        src={details.image} 
+        alt={details.title} 
+        // style={{ display:'flex', justifyItems:'center' }} 
+      />
+    ) : (
+      <p>No image available</p>
+    )}
+  </Col>
+) : (
+  <p>Loading recipe details...</p>
+)}
+
+
       </Row>
 
  
-      <button onClick={handleExit} >Exit</button>
+      <button onClick={handleExit}  className="exitButton"  >Exit</button>
     </div>
   );
 };

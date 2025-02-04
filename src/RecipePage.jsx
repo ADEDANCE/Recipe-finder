@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import RecipeDetails from "./RecipeDetails";
@@ -9,7 +9,7 @@ const API_KEY = "aaa825c706f24d959e58185fc7ae9601";
 const RecipePage = () => {
   const [ingredients, setIngredient] = useState("");
   const [recipes, setRecipes] = useState([]);
-  const [details, setDetails] = useState(null);
+  const [details, setDetails] = useState([]);
  const navigate =useNavigate();
 
 //  const handleViewDetails = () => {
@@ -25,10 +25,19 @@ const RecipePage = () => {
       const response = await fetch(url);
       const data = await response.json();
       setRecipes(data);
+      sessionStorage.setItem('fetchRecipes',JSON.stringify(data))
     } catch (error) {
       console.error("Error fetching recipes:", error);
     }
   };
+
+
+  useEffect(() => {
+    const storedData = sessionStorage.getItem("fetchRecipes");
+    if (storedData) {
+      setRecipes(JSON.parse(storedData));
+    }
+  }, []);
 
 
   
@@ -50,6 +59,17 @@ const RecipePage = () => {
       console.error("Error fetching details:", error.message);
     }
   };
+
+
+    useEffect(() =>{
+      const storedData = localStorage.getItem('fetchRecipeDetails');
+  
+      if (storedData) {
+        setDetails(JSON.parse(storedData));
+      }
+  
+  
+    },[]);
 
   return (
     <div className="Recipepage">
